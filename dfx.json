@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "userData_backend": {
+      "main": "src/userData_backend/main.mo",
+      "type": "motoko"
+    },
+    "userData_frontend": {
+      "dependencies": [
+        "userData_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/userData_frontend/src/index.html"
+      },
+      "source": [
+        "src/userData_frontend/assets",
+        "dist/userData_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
