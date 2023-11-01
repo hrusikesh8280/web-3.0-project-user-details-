@@ -6,18 +6,24 @@ import Bool "mo:base/Bool";
 
 actor UserActor {
     type User = {
-        id: Nat;
+        id:Nat;
         name: Text;
         age: Nat;
         address: Text;
         image: Text;
     };
 
+    type NewUser = {
+        name: Text;
+        age: Nat;
+        address: Text;
+        image: Text;
+    };
    stable var users : [User] = [];
 
-public func addUser(user:User):async (){
+public func addUser(user:NewUser):async (){
   let newId = Array.size(users);
-  let updateUser={
+  let updateUser:User = {
     id=newId;
     name=user.name;
     age = user.age ;
@@ -31,7 +37,7 @@ public func addUser(user:User):async (){
       return updateUser;
     }
   });
-  users :=newUser;
+  users := newUser;
 };
 public query func getUser():async[User]{
   return users;
